@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="form-group col-md-4">
+    <label for="inputState">Sort by</label>
+    <select id="inputState" class="form-control" (change)="sortOrder($event.target.value)">
+      <optgroup label="Descending">
+          <option value="id_desc">ID</option>
+          <option value="cardId_desc">Student Card ID</option>
+          <option value="firstname_desc">Fist name</option>
+          <option value="lastname_desc">Last name</option>
+      </optgroup>
+      <optgroup label="Ascending">
+          <option value="id_asc">ID</option>
+          <option value="cardId_asc">Student Card ID</option>
+          <option value="firstname_asc">First name</option>
+          <option value="lastname_asc">Last name</option>
+      </optgroup>
+    </select>
+  </div>
+  <div class="col-md-8">
+    <button class="btn btn-primary waves-light pull-right float-right" mdbWavesEffect (click)="newUser()"><i class="fas fa-plus"></i>Create</button>
+  </div>
+</div>
+
+<table id="bootstrap-data-table" class="table table-hover">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Student Card ID</th>
+      <th>First name</th>
+      <th>Last Name</th>
+      <th>Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td width="10%">{{user.id}}</td>
+      <td width="20%">{{user.cardId}}</td>
+      <td width="20%">{{user.firstname}}</td>
+      <td width="20%">{{user.lastname}}</td>
+      <td width="30%">
+        <button class="btn btn-primary waves-light" mdbWavesEffect (click)="updateUser(user)"><i class="fas fa-edit"></i>Edit</button>
+        <button class="btn btn-danger waves-light" mdbWavesEffect (click)="deleteUser(user)"><i class="fas fa-times"></i>Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

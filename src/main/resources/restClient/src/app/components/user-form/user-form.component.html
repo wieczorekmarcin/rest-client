@@ -1,0 +1,18 @@
+<div class="container">
+  <form (ngSubmit)="processForm()">
+    <input type="hidden" name="id" class="form-control" [(ngModel)]="user.id">
+    <div class="form-group">
+        <label for="cardId">Student Card ID</label>
+        <input type="text" name="cardId" step="1" class="form-control" [(ngModel)]="user.cardId" maxlength="5" pattern="\d*" />
+      </div>
+    <div class="form-group">
+      <label for="firstname">First Name</label>
+      <input type="text" name="firstname" class="form-control" [(ngModel)]="user.firstname">
+    </div>
+    <div class="form-group">
+      <label for="lastname">Last Name</label>
+      <input type="text" name="lastname" class="form-control" [(ngModel)]="user.lastname">
+    </div>
+    <input type="submit" value="Save" class="btn btn-success">
+  </form>
+</div>
